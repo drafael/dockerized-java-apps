@@ -9,14 +9,20 @@
     <packaging>pom</packaging>
 
     <properties>
+        <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+        <maven-assembly-plugin.version>3.0.0</maven-assembly-plugin.version>
+        <maven-dependency-plugin.version>3.0.1</maven-dependency-plugin.version>
+
+        <java.version>1.8</java.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
     </properties>
 
     <modules>
         <module>legacy-java-webapp</module>
         <module>modern-java-webapp</module>
+        <module>distribution-archive</module>
     </modules>
 
 </project>
