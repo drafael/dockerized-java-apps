@@ -1,7 +1,7 @@
 
 # Dockerized Java Applications (demo)
 
-
+[![Build Status](https://travis-ci.org/drafael/dockerized-java-apps.svg?branch=master)](https://travis-ci.org/drafael/dockerized-java-apps)
 
 #### Prerequisites
 
