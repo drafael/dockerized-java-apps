@@ -38,6 +38,7 @@
                         </goals>
                         <configuration>
                             <artifactItems>
+                                <!-- dockerized legacy-java-webapp -->
                                 <artifactItem>
                                     <groupId>com.example.template</groupId>
                                     <artifactId>legacy-java-webapp</artifactId>
@@ -46,6 +47,8 @@
                                     <classifier>docker</classifier>
                                     <outputDirectory>${project.build.directory}/pkg</outputDirectory>
                                 </artifactItem>
+
+                                <!-- dockerized modern-java-webapp -->
                                 <artifactItem>
                                     <groupId>com.example.template</groupId>
                                     <artifactId>modern-java-webapp</artifactId>

@@ -10,10 +10,6 @@ fi
 BIN_DIR=$(dirname "$0")
 export BASE_DIR=$(dirname "$BIN_DIR")
 
-for env_file in "$BASE_DIR"/env.d/*; do
-  export $(cat "$env_file")
-done
-
 if [[ "$OSTYPE" =~ linux ]]; then
   export HOST_UID=$(id -u)
   export HOST_GID=$(id -g)

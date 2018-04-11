@@ -26,7 +26,7 @@
             <directory>${project.build.directory}</directory>
             <outputDirectory>.</outputDirectory>
             <includes>
-                <include>Dockerfile*</include>
+                <include>**/Dockerfile</include>
             </includes>
             <fileMode>0644</fileMode>
             <directoryMode>0755</directoryMode>

@@ -125,6 +125,38 @@
                     <tarLongFileMode>gnu</tarLongFileMode>
                 </configuration>
             </plugin>
+
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>${git-commit-id-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>git-info</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+						<configuration>
+							<generateGitPropertiesFile>true</generateGitPropertiesFile>
+							<generateGitPropertiesFilename>
+								${project.build.outputDirectory}/git.properties
+							</generateGitPropertiesFilename>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<dotGitDirectory>${project.parent.basedir}/.git</dotGitDirectory>
+					<dateFormat>EEE yyyy-MM-dd HH:mm zzz</dateFormat>
+					<dateFormatTimeZone>UTC</dateFormatTimeZone>
+					<injectAllReactorProjects>true</injectAllReactorProjects>
+					<excludeProperties>
+						<excludeProperty>git.build.user.*</excludeProperty>
+						<excludeProperty>git.build.host</excludeProperty>
+						<excludeProperty>git.commit.user.*</excludeProperty>
+						<excludeProperty>git.remote.*</excludeProperty>
+					</excludeProperties>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
     

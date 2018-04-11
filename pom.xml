@@ -12,6 +12,7 @@
         <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
         <maven-assembly-plugin.version>3.0.0</maven-assembly-plugin.version>
         <maven-dependency-plugin.version>3.0.1</maven-dependency-plugin.version>
+        <git-commit-id-plugin.version>2.2.3</git-commit-id-plugin.version>
 
         <java.version>1.8</java.version>
 
@@ -24,5 +25,16 @@
         <module>modern-java-webapp</module>
         <module>distribution-archive</module>
     </modules>
+
+    <dependencies>
+
+        <!-- add Git metadata to artifact -->
+        <dependency>
+            <groupId>pl.project13.maven</groupId>
+            <artifactId>git-commit-id-plugin</artifactId>
+            <version>${git-commit-id-plugin.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

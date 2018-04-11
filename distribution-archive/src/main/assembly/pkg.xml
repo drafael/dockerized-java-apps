@@ -14,7 +14,7 @@
 
     <fileSets>
         <fileSet>
-            <directory>${project.build.directory}/pkg</directory>
+            <directory>src/main/resources</directory>
             <outputDirectory>.</outputDirectory>
             <excludes>
                 <exclude>**/*.sh</exclude>
@@ -23,7 +23,7 @@
             <directoryMode>0755</directoryMode>
         </fileSet>
         <fileSet>
-            <directory>src/main/resources</directory>
+            <directory>${project.build.directory}/pkg</directory>
             <outputDirectory>.</outputDirectory>
             <excludes>
                 <exclude>**/*.sh</exclude>
@@ -34,7 +34,7 @@
 
         <!-- shell scripts -->
         <fileSet>
-            <directory>${project.build.directory}/pkg</directory>
+            <directory>src/main/resources</directory>
             <outputDirectory>.</outputDirectory>
             <includes>
                 <include>**/*.sh</include>
@@ -44,7 +44,7 @@
             <lineEnding>unix</lineEnding>
         </fileSet>
         <fileSet>
-            <directory>src/main/resources</directory>
+            <directory>${project.build.directory}/pkg</directory>
             <outputDirectory>.</outputDirectory>
             <includes>
                 <include>**/*.sh</include>

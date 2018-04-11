@@ -3,6 +3,9 @@ FROM openjdk:8-jre-alpine
 LABEL maintainer="D.R4F4EL <d.r4f4el@gmail.com>"
 LABEL version="${project.version}"
 LABEL description="${project.description}"
+LABEL git.branch="${git.branch}" git.build.time="${git.build.time}" \
+  git.commit.id.abbrev="${git.commit.id.abbrev}" \
+  git.commit.message.short="${git.commit.message.short}"
 
 ARG HOST_UID
 ARG HOST_GID
@@ -18,7 +21,7 @@ RUN set -ex; \
   apk del shadow; \
   su-exec nobody true; echo "OK"
 
-COPY ${project.artifactId}.jar /
+COPY ${project.build.finalName}.jar /
 COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN set -ex; \
@@ -30,4 +33,4 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "${project.artifactId}.jar"]
+CMD ["java", "-jar", "${project.build.finalName}.jar"]

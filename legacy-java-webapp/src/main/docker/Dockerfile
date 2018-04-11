@@ -3,6 +3,9 @@ FROM tomcat:alpine
 LABEL maintainer="D.R4F4EL <d.r4f4el@gmail.com>"
 LABEL version="${project.version}"
 LABEL description="${project.description}"
+LABEL git.branch="${git.branch}" git.build.time="${git.build.time}" \
+  git.commit.id.abbrev="${git.commit.id.abbrev}" \
+  git.commit.message.short="${git.commit.message.short}"
 
 ARG HOST_UID
 ARG HOST_GID
@@ -22,8 +25,8 @@ RUN set -ex; \
   rm -rf $CATALINA_HOME/webapps/docs; \
   rm -rf $CATALINA_HOME/webapps/ROOT
 
-COPY ./conf $CATALINA_HOME/conf
-COPY ./${project.artifactId} $CATALINA_HOME/webapps/ROOT
+COPY conf $CATALINA_HOME/conf
+COPY ${project.build.finalName} $CATALINA_HOME/webapps/ROOT
 COPY docker-entrypoint.sh $CATALINA_HOME/bin
 
 RUN set -ex; \
