@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/drafael/dockerized-java-apps.svg?branch=master)](https://travis-ci.org/drafael/dockerized-java-apps)
 
-#### Prerequisites
+#### Requirements
 
 * Java 8 (JDK)
 * Maven
@@ -11,16 +11,16 @@
 * [Docker Compose](https://docs.docker.com/compose/install/) v1.15.0 or greater
 * Familiarity with [Spring Boot](https://projects.spring.io/spring-boot/), [Docker](https://docs.docker.com/engine/docker-overview/), and [Docker Compose](https://docs.docker.com/compose/overview/)    
 
-#### How to Build?
+#### How to Build
 
 ```
 mvn clean package
+```
+
+#### How to Run 
+
+```
 docker-compose build
-```
-
-#### How to Run? 
-
-```
 docker-compose up
 ```
 

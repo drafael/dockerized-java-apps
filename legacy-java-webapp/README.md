@@ -1,7 +1,7 @@
 
 # Legacy Web Application (war file)
 
-#### Prerequisites
+#### Requirements
 
 * Java 8 (JDK)
 * Maven
@@ -12,6 +12,9 @@
 
 ```
 mvn clean package
+```
+
+```
 docker build ./target -t legacy-java-webapp
 ```
 
@@ -30,8 +33,3 @@ docker run -it --rm -p 8080:8080 legacy-java-webapp
 ### RTFM
 
 * [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)
-* [Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
-
-#### YouTube 
-
-* [Getting Started with Spring Boot](https://www.youtube.com/watch?v=sbPSjI4tt10)

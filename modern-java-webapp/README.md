@@ -1,7 +1,7 @@
 
 # Modern Web Application (self-contained executable jar file)
 
-#### Prerequisites
+#### Requirements
 
 * Java 8 (JDK)
 * Maven
@@ -12,6 +12,9 @@
 
 ```
 mvn clean package
+```
+
+```
 docker build ./target -t modern-java-webapp
 ```
 
