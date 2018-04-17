@@ -1,7 +1,7 @@
 FROM tomcat:alpine
 
 LABEL maintainer="D.R4F4EL <d.r4f4el@gmail.com>"
-LABEL version="${project.version}"
+LABEL name="${project.name}" version="${project.version}"
 LABEL description="${project.description}"
 LABEL git.branch="${git.branch}" git.build.time="${git.build.time}" \
   git.commit.id.abbrev="${git.commit.id.abbrev}" \

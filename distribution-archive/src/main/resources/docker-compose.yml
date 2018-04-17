@@ -30,6 +30,8 @@ services:
         HOST_GID: "${HOST_GID}"
     ports:
       - "${SERVER_PORT:-8082}:8080"
+    tmpfs:
+      - /tmp
     environment:
       - SPRING_PROFILES_ACTIVE=docker,dev
     env_file:

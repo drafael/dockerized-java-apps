@@ -1,7 +1,7 @@
 FROM openjdk:8-jre-alpine
 
 LABEL maintainer="D.R4F4EL <d.r4f4el@gmail.com>"
-LABEL version="${project.version}"
+LABEL name="${project.name}" version="${project.version}"
 LABEL description="${project.description}"
 LABEL git.branch="${git.branch}" git.build.time="${git.build.time}" \
   git.commit.id.abbrev="${git.commit.id.abbrev}" \
@@ -29,8 +29,10 @@ RUN set -ex; \
 
 WORKDIR /
 
+VOLUME /tmp
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "${project.build.finalName}.jar"]
+CMD ["java","-Djava.security.egd=file:/dev/./urandom", "-jar", "${project.build.finalName}.jar"]
