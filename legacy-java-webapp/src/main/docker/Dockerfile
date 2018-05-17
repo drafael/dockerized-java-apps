@@ -33,7 +33,15 @@ RUN set -ex; \
   chmod +x $CATALINA_HOME/bin/docker-entrypoint.sh; \
   chown -R $TOMCAT_UID:$TOMCAT_GID $CATALINA_HOME
 
+WORKDIR $CATALINA_HOME
+
 ENTRYPOINT ["docker-entrypoint.sh"]
+
+VOLUME /tmp
+VOLUME $CATALINA_HOME/temp
+VOLUME $CATALINA_HOME/work
+VOLUME $CATALINA_HOME/logs
+VOLUME $CATALINA_HOME/conf/Catalina
 
 EXPOSE 8080
 EXPOSE 8009

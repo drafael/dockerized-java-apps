@@ -27,7 +27,15 @@ mvn spring-boot:run
 or, run within a Docker container:
 
 ```
-docker run -it --rm -p 8080:8080 legacy-java-webapp
+CATALINA_HOME=/usr/local/tomcat
+
+docker run -it --rm -p 8080:8080 \
+  --tmpfs /tmp \
+  --tmpfs $CATALINA_HOME/temp   \
+  --tmpfs $CATALINA_HOME/work   \
+  --tmpfs $CATALINA_HOME/logs   \
+  --tmpfs $CATALINA_HOME/conf/Catalina   \
+  legacy-java-webapp:latest
 ```
 
 ### RTFM

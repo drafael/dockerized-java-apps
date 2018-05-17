@@ -17,7 +17,7 @@ services:
       - /usr/local/tomcat/temp
       - /usr/local/tomcat/logs
     environment:
-      - SPRING_PROFILES_ACTIVE=docker,dev
+      - SPRING_PROFILES_ACTIVE=docker
     env_file:
       - env.d/legacy.env
 
@@ -33,7 +33,7 @@ services:
     tmpfs:
       - /tmp
     environment:
-      - SPRING_PROFILES_ACTIVE=docker,dev
+      - SPRING_PROFILES_ACTIVE=docker
     env_file:
       - env.d/new.env
 
