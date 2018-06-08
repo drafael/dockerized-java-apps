@@ -14,9 +14,13 @@ ENV TOMCAT_UID ${HOST_UID:-8080}
 ENV TOMCAT_GID ${HOST_GID:-8080}
 
 RUN set -ex; \
+# install JavaMelody monitoring dependencies
+  apk add --no-cache fontconfig ttf-dejavu; \
+# grab su-exec for easy step-down from root
   apk add --no-cache 'su-exec>=0.2'; \
   addgroup tomcat -g $TOMCAT_GID -S; \
   adduser tomcat -u $TOMCAT_UID -G tomcat -g tomcat -H -h $CATALINA_HOME -s /sbin/nologin -S; \
+# verify that the su-exec works
   su-exec tomcat true; echo "OK"
 
 RUN set -ex; \

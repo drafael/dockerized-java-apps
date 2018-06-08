@@ -14,11 +14,15 @@ ENV NOBODY_UID ${HOST_UID:-65534}
 ENV NOBODY_GID ${HOST_GID:-65534}
 
 RUN set -ex; \
+# install JavaMelody monitoring dependencies
+  apk add --no-cache fontconfig ttf-dejavu; \
+# grab su-exec for easy step-down from root  
   apk add 'su-exec>=0.2' --no-cache; \
   apk add shadow --no-cache; \
   groupmod nobody --gid $NOBODY_GID; \
   usermod nobody --uid $NOBODY_UID --gid $NOBODY_GID; \
   apk del shadow; \
+# verify that the su-exec works
   su-exec nobody true; echo "OK"
 
 COPY ${project.build.finalName}.jar /
