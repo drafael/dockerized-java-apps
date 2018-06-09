@@ -3,7 +3,7 @@
 source $(dirname "$0")/setenv.sh
 
 echo ""
-docker-compose -f "$BASE_DIR/docker-compose.yml" ps
+docker-compose -f "$COMPOSE_FILE" ps
 
 echo ""
-docker-compose -f "$BASE_DIR/docker-compose.yml" top
+docker-compose -f "$COMPOSE_FILE" top

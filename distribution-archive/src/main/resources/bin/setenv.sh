@@ -22,3 +22,9 @@ if [ ! -x "$(command -v docker-compose)" ]; then
   fi
   export PATH="$PATH":"$BIN_DIR"
 fi
+
+if [ -z "$1" ]; then
+  export COMPOSE_FILE="$BASE_DIR/docker-compose.yml"
+else
+  export COMPOSE_FILE="$BASE_DIR/docker-compose-$1.yml"
+fi

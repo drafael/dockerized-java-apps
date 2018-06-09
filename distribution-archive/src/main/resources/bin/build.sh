@@ -2,4 +2,4 @@
 
 source $(dirname "$0")/setenv.sh
 
-docker-compose -f "$BASE_DIR/docker-compose.yml" build
+docker-compose -f "$COMPOSE_FILE" build
