@@ -18,6 +18,7 @@ RUN set -ex; \
   apk add --no-cache fontconfig ttf-dejavu; \
 # grab su-exec for easy step-down from root
   apk add --no-cache 'su-exec>=0.2'; \
+# add tomcat user and group
   addgroup tomcat -g $TOMCAT_GID -S; \
   adduser tomcat -u $TOMCAT_UID -G tomcat -g tomcat -H -h $CATALINA_HOME -s /sbin/nologin -S; \
 # verify that the su-exec works

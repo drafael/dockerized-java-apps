@@ -18,6 +18,7 @@ RUN set -ex; \
   apk add --no-cache fontconfig ttf-dejavu; \
 # grab su-exec for easy step-down from root  
   apk add 'su-exec>=0.2' --no-cache; \
+# modify nobody's UID and GID
   apk add shadow --no-cache; \
   groupmod nobody --gid $NOBODY_GID; \
   usermod nobody --uid $NOBODY_UID --gid $NOBODY_GID; \

@@ -41,3 +41,4 @@ docker run -it --rm -p 8080:8080 \
 ### RTFM
 
 * [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)
+* [Dockerfile Maven Plugin](https://github.com/spotify/dockerfile-maven#dockerfile-maven)

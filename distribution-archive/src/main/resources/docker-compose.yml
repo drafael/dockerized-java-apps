@@ -14,8 +14,6 @@ services:
       - /usr/local/tomcat/logs
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-    env_file:
-      - env.d/legacy.env
 
   modern-java-webapp:
     restart: always
@@ -26,8 +24,6 @@ services:
       - /tmp
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-    env_file:
-      - env.d/new.env
 
   management-ui:
     restart: always

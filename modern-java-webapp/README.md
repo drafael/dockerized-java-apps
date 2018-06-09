@@ -27,12 +27,13 @@ mvn spring-boot:run
 or, run within a Docker container:
 
 ```
-docker run -it --rm --tmpfs /tmp -p 8080:8080 modern-java-webapp
+docker run -it --rm --tmpfs /tmp -p 8080:8080 modern-java-webapp:latest
 ``` 
 
 ### RTFM
 
 * [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)
+* [Dockerfile Maven Plugin](https://github.com/spotify/dockerfile-maven#dockerfile-maven)
 * [Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/)
 * [Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
 
