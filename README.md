@@ -20,7 +20,7 @@ mvn clean package
 #### How to Run 
 
 ```
-docker-compose up --build
+docker-compose up -d
 ```
 
 #### RTFM

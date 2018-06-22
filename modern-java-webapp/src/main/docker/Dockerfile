@@ -3,9 +3,7 @@ FROM openjdk:8-jre-alpine
 LABEL maintainer="D.R4F4EL <d.r4f4el@gmail.com>"
 LABEL name="${project.name}" version="${project.version}"
 LABEL description="${project.description}"
-LABEL git.branch="${git.branch}" git.build.time="${git.build.time}" \
-  git.commit.id.abbrev="${git.commit.id.abbrev}" \
-  git.commit.message.short="${git.commit.message.short}"
+LABEL git.branch="${git.branch}" git.build.time="${git.build.time}" git.commit.id="${git.commit.id}"
 
 ARG HOST_UID
 ARG HOST_GID

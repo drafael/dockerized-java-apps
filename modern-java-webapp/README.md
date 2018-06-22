@@ -14,10 +14,6 @@
 mvn clean package
 ```
 
-```
-docker build ./target -t modern-java-webapp
-```
-
 #### How to Run? 
 
 ```
@@ -27,7 +23,7 @@ mvn spring-boot:run
 or, run within a Docker container:
 
 ```
-docker run -it --rm --tmpfs /tmp -p 8080:8080 modern-java-webapp:latest
+docker run -it --rm --tmpfs /tmp -p 8080:8080 localhost:5000/modern-java-webapp:latest
 ``` 
 
 ### RTFM

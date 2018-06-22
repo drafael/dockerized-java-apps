@@ -4,42 +4,34 @@ services:
 
   legacy-java-webapp:
     restart: always
-    build:
-      context: ./legacy-java-webapp/target
-      args:
-        HOST_UID: "${HOST_UID}"
-        HOST_GID: "${HOST_GID}"
+    image: localhost:5000/legacy-java-webapp:latest
     ports:
-      - "8081:8080"
+      - 8081:8080
     tmpfs:
       - /usr/local/tomcat/conf/Catalina
       - /usr/local/tomcat/work
       - /usr/local/tomcat/temp
       - /usr/local/tomcat/logs
     environment:
-      SPRING_PROFILES_ACTIVE: "docker"
+      - SPRING_PROFILES_ACTIVE=docker
 
   modern-java-webapp:
     restart: always
-    build:
-      context: ./modern-java-webapp/target
-      args:
-        HOST_UID: "${HOST_UID}"
-        HOST_GID: "${HOST_GID}"
+    image: localhost:5000/modern-java-webapp:latest
+    ports:
+      - 8082:8080
     tmpfs:
       - /tmp
-    ports:
-      - "8082:8080"
     environment:
-      SPRING_PROFILES_ACTIVE: "docker"
+      - SPRING_PROFILES_ACTIVE=docker
 
-  management-ui:
-    restart: always
-    image: portainer/portainer
-    command: --no-auth
-    ports:
-      - "9000:9000"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    tmpfs:
-      - /data:rw,exec
+#  management-ui:
+#    restart: always
+#    image: portainer/portainer
+#    command: --no-auth
+#    ports:
+#      - "9000:9000"
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#    tmpfs:
+#      - /data:rw,exec

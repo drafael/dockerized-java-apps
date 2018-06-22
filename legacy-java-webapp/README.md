@@ -14,10 +14,6 @@
 mvn clean package
 ```
 
-```
-docker build ./target -t legacy-java-webapp
-```
-
 #### How to Run? 
 
 ```
@@ -35,7 +31,7 @@ docker run -it --rm -p 8080:8080 \
   --tmpfs $CATALINA_HOME/work   \
   --tmpfs $CATALINA_HOME/logs   \
   --tmpfs $CATALINA_HOME/conf/Catalina   \
-  legacy-java-webapp:latest
+  localhost:5000/legacy-java-webapp:latest
 ```
 
 ### RTFM
