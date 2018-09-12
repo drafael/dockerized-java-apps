@@ -29,6 +29,7 @@ docker run -it --rm --tmpfs /tmp -p 8080:8080 localhost:5000/modern-java-webapp:
 ### RTFM
 
 * [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)
+* [Manage data in Docker](https://docs.docker.com/storage/)
 * [Dockerfile Maven Plugin](https://github.com/spotify/dockerfile-maven#dockerfile-maven)
 * [Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/)
 * [Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)

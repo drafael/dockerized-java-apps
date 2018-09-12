@@ -27,5 +27,6 @@ docker-compose up -d
 
 * [Compose file reference](https://docs.docker.com/compose/compose-file/)
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
+* [Manage data in Docker](https://docs.docker.com/storage/)
 * [Use Compose in production](https://docs.docker.com/compose/production/)
 * [Docker for Java Developers](https://github.com/docker/labs/tree/master/developer-tools/java/)
