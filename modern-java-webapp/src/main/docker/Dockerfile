@@ -38,4 +38,4 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 8080
 
-CMD ["java","-Djava.security.egd=file:/dev/./urandom", "-jar", "${project.build.finalName}.jar"]
+CMD ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom", "-jar", "${project.build.finalName}.jar"]

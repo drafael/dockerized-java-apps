@@ -1,4 +1,4 @@
-FROM tomcat:alpine
+FROM tomcat:8.5-jre8-alpine
 
 LABEL maintainer="D.R4F4EL <d.r4f4el@gmail.com>"
 LABEL name="${project.name}" version="${project.version}"
@@ -48,5 +48,7 @@ VOLUME $CATALINA_HOME/conf/Catalina
 
 EXPOSE 8080
 EXPOSE 8009
+
+ENV CATALINA_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
 
 CMD ["catalina.sh", "run"]
