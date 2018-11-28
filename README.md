@@ -14,7 +14,7 @@
 #### How to Build
 
 ```
-mvn clean package
+mvn package
 ```
 
 #### How to Run 
@@ -23,10 +23,45 @@ mvn clean package
 docker-compose up -d
 ```
 
-#### RTFM
+#### How to Skip Building Docker Images?
+
+Use `-Ddockerfile.skip` flag:
+
+```
+mvn package -Ddockerfile.skip
+```
+
+#### How to Build and Push to the Registry?
+
+```
+mvn deploy
+```
+
+#### Useful Commands
+
+Removing images according to a pattern:
+
+```bash
+docker images -a | grep "java-webapp" | awk '{print $3}' | xargs docker rmi -f
+```
+Remove all images:
+
+```bash
+docker rmi $(docker images -a -q)
+```
+
+Remove all containers
+
+```bash
+docker rm $(docker ps -a -q)
+```
+
+### See Also
+
+
+#### See Also
 
 * [Compose file reference](https://docs.docker.com/compose/compose-file/)
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 * [Manage data in Docker](https://docs.docker.com/storage/)
 * [Use Compose in production](https://docs.docker.com/compose/production/)
-* [Docker for Java Developers](https://github.com/docker/labs/tree/master/developer-tools/java/)

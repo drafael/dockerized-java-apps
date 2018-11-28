@@ -1,5 +1,5 @@
 # Set the default behavior, in case people don't have core.autocrlf set.
-* text=auto
+#* text=auto
 
 # always convert line endings to LF on checkout.
 *.sh		text eol=lf

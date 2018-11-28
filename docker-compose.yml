@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  legacy-java-webapp:
+  legacy-app:
     restart: always
     image: localhost:5000/legacy-java-webapp:latest
     ports:
@@ -15,7 +15,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
 
-  modern-java-webapp:
+  modern-app:
     restart: always
     image: localhost:5000/modern-java-webapp:latest
     ports:
@@ -25,13 +25,18 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
 
-#  management-ui:
-#    restart: always
-#    image: portainer/portainer
-#    command: --no-auth
-#    ports:
-#      - "9000:9000"
-#    volumes:
-#      - /var/run/docker.sock:/var/run/docker.sock
-#    tmpfs:
-#      - /data:rw,exec
+  ui:
+    restart: always
+    image: portainer/portainer
+    command: --no-auth --templates http://ui-templates/templates.json
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    tmpfs:
+      - /data:rw,exec
+
+  ui-templates:
+    restart: always
+    image: portainer/templates
+    

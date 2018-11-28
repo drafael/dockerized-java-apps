@@ -33,16 +33,13 @@
         <module>modern-java-webapp</module>
         <module>distribution-archive</module>
     </modules>
-
-    <dependencies>
-
-        <!-- add Git metadata to artifact -->
-        <dependency>
-            <groupId>pl.project13.maven</groupId>
-            <artifactId>git-commit-id-plugin</artifactId>
-            <version>${git-commit-id-plugin.version}</version>
-        </dependency>
-
-    </dependencies>
+    
+    <distributionManagement>
+        <repository>
+            <id>local-files</id>
+            <name>local-files</name>
+            <url>file:target/maven_repo</url>
+        </repository>
+    </distributionManagement>
 
 </project>
