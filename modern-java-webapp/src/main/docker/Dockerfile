@@ -8,29 +8,37 @@ LABEL git.branch="${git.branch}" git.build.time="${git.build.time}" git.commit.i
 ARG HOST_UID
 ARG HOST_GID
 
-ENV NOBODY_UID ${HOST_UID:-65534}
-ENV NOBODY_GID ${HOST_GID:-65534}
+ENV APP_UID ${HOST_UID:-1000}
+ENV APP_GID ${HOST_GID:-1000}
+
+ENV APP_DIR /app
+ENV PATH $APP_DIR/bin:$PATH
+ENV USER_NAME appuser
 
 RUN set -ex; \
+  mkdir -p $APP_DIR/bin; \
 # install JavaMelody monitoring dependencies
   apk add --no-cache fontconfig ttf-dejavu; \
-# grab su-exec for easy step-down from root  
-  apk add 'su-exec>=0.2' --no-cache; \
-# modify nobody's UID and GID
-  apk add shadow --no-cache; \
-  groupmod nobody --gid $NOBODY_GID; \
-  usermod nobody --uid $NOBODY_UID --gid $NOBODY_GID; \
-  apk del shadow; \
+# grab su-exec for easy step-down from root
+  apk add --no-cache 'su-exec>=0.2'; \
+# add tomcat user and group
+  addgroup $USER_NAME -g $APP_GID -S; \
+  adduser $USER_NAME -u $APP_UID -G $USER_NAME -g $USER_NAME -H -h $APP_DIR -s /sbin/nologin -S; \
 # verify that the su-exec works
-  su-exec nobody true; echo "OK"
+  su-exec $USER_NAME true; echo "OK"
 
-COPY ${project.build.finalName}.jar /
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY ${project.build.finalName}.jar $APP_DIR
+COPY docker-entrypoint.sh $APP_DIR/bin
 
 RUN set -ex; \
-  chmod +x /usr/local/bin/docker-entrypoint.sh
+  find $APP_DIR -type d -exec chmod 755 {} \;; \
+  find $APP_DIR -type f -exec chmod 644 {} \;; \
+  chown -R $APP_UID:$APP_GID $APP_DIR        ; \
+  chmod +x $APP_DIR/bin/docker-entrypoint.sh
 
-WORKDIR /
+WORKDIR $APP_DIR
+
+#USER $USER_NAME
 
 VOLUME /tmp
 

@@ -8,8 +8,8 @@ LABEL git.branch="${git.branch}" git.build.time="${git.build.time}" git.commit.i
 ARG HOST_UID
 ARG HOST_GID
 
-ENV TOMCAT_UID ${HOST_UID:-8080}
-ENV TOMCAT_GID ${HOST_GID:-8080}
+ENV TOMCAT_UID ${HOST_UID:-1000}
+ENV TOMCAT_GID ${HOST_GID:-1000}
 
 RUN set -ex; \
 # install JavaMelody monitoring dependencies
