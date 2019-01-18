@@ -4,6 +4,7 @@ services:
 
   legacy-app:
     restart: always
+    image: ${docker.registry}/legacy-java-webapp:latest
     build:
       context: ./legacy-java-webapp
       args:
@@ -21,6 +22,7 @@ services:
 
   modern-app:
     restart: always
+    image: ${docker.registry}/modern-java-webapp:latest
     build:
       context: ./modern-java-webapp
       args:

@@ -56,9 +56,6 @@ Remove all containers
 docker rm $(docker ps -a -q)
 ```
 
-### See Also
-
-
 #### See Also
 
 * [Compose file reference](https://docs.docker.com/compose/compose-file/)
