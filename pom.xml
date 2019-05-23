@@ -19,10 +19,7 @@
         <maven-dependency-plugin.version>3.0.1</maven-dependency-plugin.version>
         <git-commit-id-plugin.version>2.2.3</git-commit-id-plugin.version>
         <dockerfile-maven-plugin.version>1.4.3</dockerfile-maven-plugin.version>
-
-        <spring-boot.version>1.5.12.RELEASE</spring-boot.version>
-        <spring-cloud.version>Edgware.SR3</spring-cloud.version>
-
+        
         <docker.host.uid>1000</docker.host.uid>
         <docker.host.gid>1000</docker.host.gid>
         <docker.registry>localhost:5000</docker.registry>
@@ -33,6 +30,41 @@
         <module>modern-java-webapp</module>
         <module>distribution-archive</module>
     </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven-resources-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${maven-dependency-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>${git-commit-id-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${maven-assembly-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>dockerfile-maven-plugin</artifactId>
+                    <version>${dockerfile-maven-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
     
     <distributionManagement>
         <repository>
